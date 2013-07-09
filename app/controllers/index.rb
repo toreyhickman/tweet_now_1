@@ -1,4 +1,14 @@
+before do
+  @message = nil
+  @tweet = nil
+end
+
 get '/' do
-  # Look in app/views/index.erb
+  
+  erb :index
+end
+
+post '/' do
+  
   erb :index
 end
