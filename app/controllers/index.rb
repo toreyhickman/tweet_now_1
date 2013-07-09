@@ -4,11 +4,10 @@ before do
 end
 
 get '/' do
-  
   erb :index
 end
 
 post '/' do
-  
-  erb :index
+  Twitter.update(params[:tweet_text])
+  return "Your tweet, \"#{params[:tweet_text]}\" has been tweeted."
 end

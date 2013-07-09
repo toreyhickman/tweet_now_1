@@ -1,9 +1,15 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Tweet from Here</h1>
+  
+  <p id="message_to_user">
+    <%= @message ? @message : "Send a tweet as &lt;username&gt;" %>
+  </p>
 
   <form id="tweeter" method="post" action="/">
     <textarea name="tweet_text" placeholder="tweet ..."></textarea>
+    
+    <br><br>
+
     <input type="submit" name="submit">
   </form>
 </div>

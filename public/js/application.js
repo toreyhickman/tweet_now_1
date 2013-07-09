@@ -1,7 +1,22 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('.container form#tweeter').on('submit', function(event) {
+
+    event.preventDefault();
+
+    message_to_tweet = $('.container form textarea').val();
+    params = { tweet_text: message_to_tweet };
+
+    $('.container form#tweeter').fadeOut(500);
+    $('.container form textarea').val("");
+
+    $('#message_to_user').text("Sending your tweet ...");
+
+    $.post('/', params, function(data) {
+
+      $('#message_to_user').text(data);
+      $('.container form#tweeter').fadeIn(500);
+
+    });
+  });
 });
